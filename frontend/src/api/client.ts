@@ -11,7 +11,7 @@ export class ApiError extends Error {
 }
 
 // Netlify'da VITE_API_URL berilsa shu manzilga, bo'lmasa Vite proxy orqali /api ga yuboriladi
-const BASE = (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+const BASE = "https://yulduzbox.onrender.com";
 
 interface Options {
   method?: "GET" | "POST" | "PATCH";
