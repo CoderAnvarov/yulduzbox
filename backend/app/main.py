@@ -22,12 +22,13 @@ app = FastAPI(
 app.state.limiter = limiter
 register_error_handlers(app)
 app.add_middleware(SlowAPIMiddleware)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origin_list,
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PATCH"],
-    allow_headers=["Authorization", "Content-Type", "Idempotency-Key"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 for r in (auth.router, wallet.router, products.router, orders.router, admin.router):
